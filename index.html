@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Form Input Barang Gudang G5000</title>
+<style>
+/* Animasi background transisi di body */
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  min-height: 91vh;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 8px;
+  color: #333;
+
+  /* Background gradasi dengan animasi warna yang lebih kompleks */
+  background: linear-gradient(270deg, #74ebd5, #ACB6E5, #f7971e, #ffd200, #667eea, #764ba2, #74ebd5);
+  background-size: 1400% 1400%;
+  animation: gradientShift 30s ease infinite;
+}
+
+@keyframes gradientShift {
+  0% {
+    background-position: 0% 50%;
+  }
+  16% {
+    background-position: 25% 50%;
+  }
+  33% {
+    background-position: 50% 50%;
+  }
+  50% {
+    background-position: 75% 50%;
+  }
+  66% {
+    background-position: 100% 50%;
+  }
+  83% {
+    background-position: 75% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* ===== Kode CSS Anda yang lain tetap sama ===== */
+.container {
+  background: #fff;
+  width: 100%;
+  max-width: 480px;
+  padding: 5px;
+  border-radius: 12px;
+  box-shadow: 0 12px 24px rgba(0,0,0,0.15);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: center;
+}
+h2 {
+  color: #1e3c72;
+  font-weight: 700;
+  font-size: 1.5rem;
+  text-align: center;
+  letter-spacing: 1px;
+  margin: 0;
+}
+label {
+  font-weight: 600;
+  font-size: 1rem;
+  color: #1e3c72;
+  user-select: none;
+  width: 100%;
+  text-align: center;
+  margin-bottom: 2px;
+}
+.radio-group {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr); /* Menambah 1 kolom untuk tombol baru */
+  gap: 10px 20px;
+  width: 100%;
+  justify-items: center;
+  align-items: center; /* Vertikal align tengah semua item */
+}
+/* Tombol link baru */
+.link-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 6px 12px;
+  background: linear-gradient(135deg, #4b6cb7, #182848);
+  color: white;
+  font-weight: 700;
+  font-size: 12px;
+  border-radius: 8px;
+  cursor: pointer;
+  user-select: none;
+  white-space: nowrap;
+  text-decoration: none;
+  transition: box-shadow 0.3s ease;
+  border: 2px solid transparent;
+}
+.link-button:hover,
+.link-button:focus {
+  box-shadow: 0 0 10px rgba(255,255,255,0.9);
+  outline: none;
+}
+/* Radio Buttons tetap seperti semula */
+.radio-label {
+  cursor: pointer;
+  border-radius: 8px;
+  border: 2px solid #ccc; /* border abu-abu */
+  background: #ccc; /* warna default abu-abu */
+  color: #333; /* teks gelap */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.3s, border-color 0.3s, box-shadow 0.3s, color 0.3s;
+  user-select: none;
+  white-space: nowrap;
+  min-width: 50px;
+  padding: 2px 2px;
+  font-size: 12px;
+  font-weight: 1000;
+}
+.radio-label input[type="radio"] {
+  display: none;
+}
+.radio-label span {
+  width: 100%;
+  text-align: center;
+  display: inline-block;
+  padding: 6px 10px;
+  border-radius: 8px;
+  transition: inherit;
+  color: inherit;
+}
+.radio-label input[type="radio"]:checked + span {
+  box-shadow: 0 0 10px rgba(255,255,255,0.8);
+  border-color: white;
+  font-weight: 700;
+  color: white;
+  background: linear-gradient(135deg, #4b6cb7, #182848);
+}
+
+/* Responsif untuk layar sangat kecil */
+@media (max-width: 400px) {
+  .container {
+    max-width: 100%;
+    padding: 8px;
+  }
+  h2 {
+    font-size: 1.1rem;
+  }
+  .radio-label {
+    min-width: 65px;
+    font-size: 0.85rem;
+    padding: 8px 12px;
+  }
+  iframe {
+    height: 320px !important; /* iframe lebih pendek untuk layar kecil */
+  }
+}
+
+/* Responsif untuk layar sedang (tablet dan smartphone besar) */
+@media (min-width: 401px) and (max-width: 768px) {
+  iframe {
+    height: 700px !important;
+  }
+}
+
+/* Responsif untuk layar besar */
+@media (min-width: 769px) {
+  iframe {
+    height: 580px !important;
+  }
+}
+
+/* Style iframe */
+iframe {
+  width: 100%;
+  border: none;
+  border-radius: 12px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.12);
+  transition: opacity 0.4s ease;
+  opacity: 0;
+  pointer-events: none;
+  margin-top: 6px;
+  height: 500px; /* default */
+}
+iframe.visible {
+  opacity: 1;
+  pointer-events: auto;
+}
+</style>
+</head>
+<body>
+<div class="container" role="main" aria-label="Form Input Barang">
+  <h2>STOCK MANUAL G5000</h2>
+  <label id="jenisLabel">Pilih Jenis Barang</label>
+  <div class="radio-group" role="radiogroup" aria-labelledby="jenisLabel" tabindex="0">
+    <!-- Tombol Link Baru, posisi paling awal -->
+    <a href="https://arif-komp.github.io/FISIK-FENCING/" target="_blank" rel="noopener" class="link-button" tabindex="0" aria-label="Buka Fisik Fencing">
+      FISIK FENCING
+    </a>
+    <!-- Radio buttons jenis barang -->
+    <label class="radio-label btn-besi" for="jenis-besi">
+      <input type="radio" id="jenis-besi" name="jenisBarang" value="besi" />
+      <span>BESI</span>
+    </label>
+    <label class="radio-label btn-semen" for="jenis-semen">
+      <input type="radio" id="jenis-semen" name="jenisBarang" value="semen" />
+      <span>SEMEN</span>
+    </label>
+    <label class="radio-label btn-bwg" for="jenis-bwg_kawatduri">
+      <input type="radio" id="jenis-bwg_kawatduri" name="jenisBarang" value="bwg_kawatduri" />
+      <span>BWG</span>
+    </label>
+    <label class="radio-label btn-galvalum" for="jenis-galvalum_bondex">
+      <input type="radio" id="jenis-galvalum_bondex" name="jenisBarang" value="galvalum_bondex" />
+      <span>GALVALUM</span>
+    </label>
+    <label class="radio-label btn-hollo" for="jenis-hollo">
+      <input type="radio" id="jenis-hollo" name="jenisBarang" value="hollo" />
+      <span>KANAL-HOLO</span>
+    </label>
+  </div>
+  <iframe id="formEmbed" title="Form Input Barang"></iframe>
+</div>
+
+<script>
+const formUrls = {
+  semen: 'https://docs.google.com/forms/d/e/1FAIpQLSdZ782ypKNPYRAUrOcJG4bMBAWk_j1R3GuNJi7FAjqkbN6phA/viewform?embedded=true',
+  besi: 'https://docs.google.com/forms/d/1b9LwXsPNqy8YJ0PU7e0HeUyc4s3gEeDGOclnaMXY2EQ/viewform?edit_requested=true?embedded=true',
+  bwg_kawatduri: 'https://docs.google.com/forms/d/1KGFYkQ1jmAVSgz5_YSKnxyKXl7EhgPwF-7oM0ykWPRE/viewform?edit_requested=true?embedded=true',
+  galvalum_bondex: 'https://docs.google.com/forms/d/e/1FAIpQLSdJOCRlVQ24XE1GmmKKg9HYXMOQ_0loKHKjD-qtdnienOsdRA/viewform?embedded=true',
+  hollo: 'https://docs.google.com/forms/d/e/1FAIpQLSdYZsu7PHFh6XQUxFZxO1BUYJU6VpHGuWqzixXRbn0xaxqsQw/viewform?embedded=true',
+};
+
+const radioButtons = document.querySelectorAll('input[name="jenisBarang"]');
+const formEmbed = document.getElementById('formEmbed');
+
+function adjustIframeHeight() {
+  const width = window.innerWidth;
+  let vh;
+
+  if (width <= 400) {
+    vh = 320; // layar sangat kecil
+  } else if (width <= 768) {
+    vh = 450; // tablet atau smartphone besar
+  } else {
+    vh = window.innerHeight * 0.8;
+    if (vh < 580) vh = 580; // minimal tinggi untuk layar besar
+    if (vh > 700) vh = 700; // maksimal tinggi
+  }
+
+  formEmbed.style.height = vh + 'px';
+}
+
+// Event listener untuk perubahan radio button
+radioButtons.forEach(radio => {
+  radio.addEventListener('change', () => {
+    const jenis = document.querySelector('input[name="jenisBarang"]:checked').value;
+    if (jenis && formUrls[jenis]) {
+      formEmbed.classList.remove('visible');
+      setTimeout(() => {
+        formEmbed.src = formUrls[jenis];
+        formEmbed.classList.add('visible');
+        adjustIframeHeight();
+      }, 200);
+    } else {
+      formEmbed.classList.remove('visible');
+      formEmbed.src = '';
+    }
+  });
+});
+
+// Fungsi bantu untuk cek apakah URL menandakan form sudah submit
+function isFormSubmittedUrl(url) {
+  const submitIndicators = [
+    'formResponse',
+    'formResponse?',
+    'thankyou',
+    'submit',
+    'viewform?usp=pp_url',
+    'closedform',
+    'formResponseEdit',
+    'formResponseView'
+  ];
+  return submitIndicators.some(indicator => url.includes(indicator));
+}
+
+// Deteksi submit pada Google Form dan reload iframe ke form kosong
+formEmbed.addEventListener('load', function() {
+  try {
+    const currentSrc = formEmbed.contentWindow.location.href;
+    if (isFormSubmittedUrl(currentSrc)) {
+      const jenis = document.querySelector('input[name="jenisBarang"]:checked')?.value;
+      if (jenis && formUrls[jenis]) {
+        setTimeout(() => {
+          formEmbed.src = formUrls[jenis];
+        }, 600);
+      }
+    }
+  } catch (e) {
+    if (isFormSubmittedUrl(formEmbed.src)) {
+      const jenis = document.querySelector('input[name="jenisBarang"]:checked')?.value;
+      if (jenis && formUrls[jenis]) {
+        setTimeout(() => {
+          formEmbed.src = formUrls[jenis];
+        }, 600);
+      }
+    }
+  }
+});
+
+window.addEventListener('load', adjustIframeHeight);
+window.addEventListener('resize', adjustIframeHeight);
+</script>
+</body>
+</html>
