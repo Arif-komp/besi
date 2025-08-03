@@ -226,6 +226,10 @@ iframe.visible {
       <span>KANAL-HOLO</span>
     </label>
   </div>
+    <label class="radio-label btn-pipakotak" for="jenis-pipakotak">
+      <input type="radio" id="jenis-pipakotak" name="jenisBarang" value="pipakotak" />
+      <span>PIPA GALV</span>
+    </label>
   <iframe id="formEmbed" title="Form Input Barang"></iframe>
 </div>
 
@@ -236,6 +240,8 @@ const formUrls = {
   bwg_kawatduri: 'https://docs.google.com/forms/d/1KGFYkQ1jmAVSgz5_YSKnxyKXl7EhgPwF-7oM0ykWPRE/viewform?edit_requested=true?embedded=true',
   galvalum_bondex: 'https://docs.google.com/forms/d/e/1FAIpQLSdJOCRlVQ24XE1GmmKKg9HYXMOQ_0loKHKjD-qtdnienOsdRA/viewform?embedded=true',
   hollo: 'https://docs.google.com/forms/d/e/1FAIpQLSdYZsu7PHFh6XQUxFZxO1BUYJU6VpHGuWqzixXRbn0xaxqsQw/viewform?embedded=true',
+  pipakotak: 'https://docs.google.com/forms/d/e/1FAIpQLSev-cevIldsAFo087WeaKeYvg8WroofcD40uY3hx7spM--0tQ/viewform',
+  
 };
 
 const radioButtons = document.querySelectorAll('input[name="jenisBarang"]');
